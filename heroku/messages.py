@@ -9,7 +9,7 @@ import urllib
 # Post request to Spark Web API to create Devs room
 #
 def create_devs_room():
-    data = {"title" : "Devs"}
+    data = {"title" : "Victor-testspark"}
     resp = requests.post(ROOMS_URL,json=data, headers=HEADERS)
     return json.loads(resp.text)['id']
 
