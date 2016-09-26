@@ -17,7 +17,7 @@ def create_devs_room():
 # Check rooms dictionary for Devs room
 #
 def get_devs_id(rooms):
-    devs_id = ''.join([r['id'] for r in rooms if r['title'] == "Devs"])
+    devs_id = ''.join([r['id'] for r in rooms if r['title'] == "Victor-testspark"])
     if len(devs_id) > 0:
         return devs_id
     else:
