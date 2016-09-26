@@ -9,7 +9,7 @@ import urllib
 # Post request to Spark Web API to create Devs room
 #
 def create_devs_room():
-    data = {"title" : "Victor-testspark"}
+    data = {"title" : "Victor's Test Room"}
     resp = requests.post(ROOMS_URL,json=data, headers=HEADERS)
     return json.loads(resp.text)['id']
 
@@ -17,7 +17,7 @@ def create_devs_room():
 # Check rooms dictionary for Devs room
 #
 def get_devs_id(rooms):
-    devs_id = ''.join([r['id'] for r in rooms if r['title'] == "Victor-testspark"])
+    devs_id = ''.join([r['id'] for r in rooms if r['title'] == "Victor's Test Room"])
     if len(devs_id) > 0:
         return devs_id
     else:
