@@ -8,7 +8,7 @@ import urllib
 ##
 # Post request to Spark Web API to create Devs room
 #
-def create_devs_room():
+def create_room():
     data = {"title" : "Victor's Test Room"}
     resp = requests.post(ROOMS_URL,json=data, headers=HEADERS)
     return json.loads(resp.text)['id']
@@ -16,12 +16,12 @@ def create_devs_room():
 ##
 # Check rooms dictionary for Devs room
 #
-def get_devs_id(rooms):
-    devs_id = ''.join([r['id'] for r in rooms if r['title'] == "Victor's Test Room"])
-    if len(devs_id) > 0:
-        return devs_id
+def get_room_id(rooms):
+    target_room_id = ''.join([r['id'] for r in rooms if r['title'] == "Victor's Test Room"])
+    if len(target_room_id) > 0:
+        return target_room_id
     else:
-        raise Exception("Dev room has not been created.")
+        raise Exception("Room has not been created.")
 
 ##
 # Create Devs room on Spark
@@ -30,9 +30,9 @@ def setup():
     resp = requests.get(ROOMS_URL, headers=HEADERS)
     rooms = json.loads(resp.text)['items']
     try:
-        return get_devs_id(rooms)
+        return get_room_id(rooms)
     except:
-        return create_devs_room()
+        return create_room()
 
 
 ##
